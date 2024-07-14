@@ -587,8 +587,15 @@ const questions = [
     },
     {
         text: 'Which of the following are characteristics of cloud computing? Choose 3 answers from the below:',
-        options:['On-demand delivery','Cloud charges are capital expenditures', 'Services are delivered via the Internet','Pay-as-you-go pricing'],
-        correctAnswer: 'On-demand delivery, Services are delivered via the Internet, Pay-as-you-go pricing'
+        options:[
+            'On-demand delivery',
+            'Cloud charges are capital expenditures',
+            'Services are delivered via the Internet',
+            'Pay-as-you-go pricing'],
+        correctAnswer:[
+            'On-demand delivery',
+            'Services are delivered via the Internet',
+            'Pay-as-you-go pricing'] 
     }
     // Add more questions as needed
 ];

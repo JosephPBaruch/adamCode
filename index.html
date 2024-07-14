@@ -52,6 +52,8 @@
                 questionDiv.classList.add('question');
                 questionDiv.id = `question${index + 1}`;
 
+                if (question.correctAnswer.Count() == 1 ) {
+                    // For single
                 questionDiv.innerHTML = `
                     <h2>${index + 1}. ${question.text}</h2>
                     ${question.options.map((option, i) => `
@@ -62,6 +64,20 @@
                     `).join('')}
                     <p class="feedback"></p>
                 `;
+                }else{
+                    // for multi
+                    questionDiv.innerHTML = `
+                    <h2>${index + 1}. ${question.text}</h2>
+                    ${question.options.map((option, i) => `
+                        <label>
+                            <input type="box" name="q${index + 1}" value="${option}"> 
+                            <!-- TODO: Change to whatever type -->
+                            ${String.fromCharCode(65 + i)}. ${option}
+                        </label>
+                    `).join('')}
+                    <p class="feedback"></p>
+                `;
+                }
 
                 form.appendChild(questionDiv);
             });
@@ -74,7 +90,7 @@
         }
 
         function checkAnswer(event) {
-            const selectedOption = event.target;
+            const selectedOption = event.target; // TODO: Create select option as an array
             const questionDiv = selectedOption.closest('.question');
             const feedbackElement = questionDiv.querySelector('.feedback');
             const questionIndex = parseInt(selectedOption.name.slice(1)) - 1;
